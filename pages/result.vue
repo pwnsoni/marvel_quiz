@@ -1,8 +1,11 @@
 <template>
     <div id="mainDiv">
 
-      <div id="topBar">
-        <h2 id="topBarText"> <span> Welcome {{username}} </span> <span> Room {{room}} </span>  </h2>
+     <div id="topBar">
+        <h2 id="topBarText"> 
+        <span> <b-icon icon="person" scale="1" ></b-icon> {{username}} </span> 
+        <span @click="leaveGame()" id="leave" v-b-tooltip.hover title="Go to homepage"> <b-icon icon="house-fill" aria-hidden="true" scale="1"></b-icon> </span>
+        <span>  <b-icon icon="geo-alt-fill" scale="1" ></b-icon> {{room}} </span>  </h2>
       </div>
 
       <div id = "score">
@@ -10,6 +13,11 @@
         <h1> Score: {{score}} / {{questionNumber}} </h1>
 
       </div>
+
+      <div id ="leaderBoard">
+          <h3> Leaderboard </h3>
+          <b-table striped hover :items="leaderBoard"></b-table>
+        </div>
     </div>
 </template>
 
@@ -42,6 +50,15 @@
       },
       questionNumber (){
         return this.$store.state.questionNumber;
+      },
+      leaderBoard (){
+        return this.$store.state.leaderBoard;
+      }
+    },
+    methods: {
+      async leaveGame(){
+        await this.$store.dispatch('LEAVE_THE_GAME');
+      
       }
     }
   }
@@ -50,9 +67,22 @@
 <style scoped>
 #mainDiv{
   min-width: 100vw;
-  min-height: 90vh;
+  min-height: 80vh;
   background: rgb(220, 247, 248);
 }
+
+#leaderBoard{
+    flex: 1;
+    text-align: center;
+    /* background: red; */
+    min-height: 40vh;
+    /* max-width: 80vw; */
+    padding: 5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    
+}
+
 
 
 h1{

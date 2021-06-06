@@ -2,14 +2,18 @@
     <div id="mainDiv">
 
       <div id="topBar">
-        <h2 id="topBarText"> <span> Welcome {{username}} </span> <span> Room {{room}} </span>  </h2>
-        <h3> Question Number {{questionNumber}} </h3>
+        <h2 id="topBarText"> 
+        <span> <b-icon icon="person" scale="1" ></b-icon> {{username}} </span> 
+        <span @click="leaveGame()" id="leave" v-b-tooltip.hover title="Leave game!!"> <b-icon icon="house-fill" aria-hidden="true" scale="1"></b-icon> </span>
+        <span>  <b-icon icon="geo-alt-fill" scale="1" ></b-icon> {{room}} </span>  </h2>
+        <h3> <span v-b-tooltip.hover title="Question Number"> <b-icon icon="question-square" scale="1" ></b-icon> {{questionNumber}} </span> </h3>
       </div>
 
       <div id = "belowBar">
 
         <div id ="leaderBoard">
-          {{leaderBoard}}
+          <h4> Leaderboard </h4>
+          <b-table striped hover :items="leaderBoard"></b-table>
         </div>
 
         <div id="question">
@@ -30,7 +34,11 @@
             </b-form-group>
           </div>
 
-        <div id="selected">Selected: {{selected}} <span> <b-icon icon="caret-right-square" @click="submitAnswer(selected)" scale="3" id="nextButton"></b-icon> </span></div>
+        <!-- <span v-if="loading" id="selected"> <b-icon icon="three-dots" animation="cylon" font-scale="4" ></b-icon> </span> -->
+        <div id="selected">
+          <span  v-if="!loading"> Selected: {{selected}} <span v-b-tooltip.hover title="Submit Answer"> <b-icon icon="caret-right-square" @click="submitAnswer(selected)" scale="3" id="nextButton" ></b-icon> </span> </span>
+          <span v-if="loading"> <b-icon icon="three-dots" animation="cylon" font-scale="4" ></b-icon> </span>
+          </div>
         
         
 
@@ -54,6 +62,7 @@
         isEditing: true,
         spinningInModal: false,
         selected: 'none',
+        loading: false
         }
     },
 
@@ -94,8 +103,17 @@
         this.makeToast(true, "Saved the snsGroup in DB", responseSnsGroup.data.result._id);
       },
       async submitAnswer(selected){
+        this.loading = true;
         await this.$store.dispatch('SUBMIT_THIS_QUESTION', {selected});
+        this.loading = false;
+        await this.$store.dispatch('GET_LEADERBOARD')
       },
+      async leaveGame(){
+        if(confirm(`You really wanna leave the battler ${this.username} !!`)){
+          await this.$store.dispatch('LEAVE_THE_GAME');
+        }
+      },
+
       makeToast(append = false, title, _id) {
         this.$bvToast.toast(`Id : ${_id}`, {
           title: title,
@@ -110,8 +128,16 @@
 <style scoped>
 #mainDiv{
   min-width: 100vw;
-  min-height: 90vh;
+  min-height: 85vh;
   background: rgb(220, 247, 248);
+}
+
+#leave{
+  transition: 0.5s;
+}
+
+#leave:hover{
+  color: rgba(235, 174, 6, 0.493);
 }
 
 #belowBar{
@@ -122,12 +148,22 @@
 #leaderBoard{
     flex: 1;
     float: left;
-    background: red;
-    min-height: 40vh;
-    min-width: 20vw;
+    /* background: red; */
+    max-height: 50vh;
+    min-height: 50vh;
+    max-width: 35vw;
+    padding-left: 3vw;
+    padding: 2vw;
+    transition: 0.5s;
+    overflow-y: auto
 }
 
-#options{
+#leaderBoard:hover{
+  /* background: rgb(233, 249, 250); */
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+#options, h4{
   /* font-size: x-large; */
   /* margin-left: 45vw; */
 
@@ -166,17 +202,26 @@
 
 #question{
   color: rgb(19, 32, 32);
-  min-width: 90vw;
+  min-width: 70vw;
   float: left;
   margin-left: 0;
-  background: rosybrown;
+  /* background: rosybrown; */
+  transition: 0.5s;
+  /* padding-left: 1px; */
+}
+
+#question:hover{
+  /* background: rgb(233, 249, 250); */
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
 
 h3{
   text-align: right;
   padding-right: 7%;
-  padding-bottom: 1%;
+  padding-bottom: 3%;
 }
+
+
 
 #topBarText{
   padding: 7%;

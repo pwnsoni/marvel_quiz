@@ -1,10 +1,16 @@
 <template>
-  <div>
+  <div id="def">
+    <!-- <Header /> -->
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
 <style>
+
+#def{
+  background: rgb(220, 247, 248);
+}
 html {
   font-family:
     'Source Sans Pro',
@@ -15,6 +21,7 @@ html {
     'Helvetica Neue',
     Arial,
     sans-serif;
+  /* / */
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
