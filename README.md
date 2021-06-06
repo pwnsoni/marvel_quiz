@@ -1,5 +1,13 @@
 # marvel_quiz
 
+## Technology Stack
+
+* Nuxt JS
+* Express JS
+* Redis (For leaderboard)
+* Serverless
+* AWS Lambda
+
 ## Build Setup
 
 ```bash
