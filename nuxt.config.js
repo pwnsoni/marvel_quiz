@@ -34,7 +34,11 @@ module.exports =  {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios'
   ],
+  bootstrapVue: {
+    icons: true
+  },
 
   telemetry: false,
 

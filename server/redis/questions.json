@@ -1,0 +1,42 @@
+[{
+    "question": "Who is the father of Thor?",
+    "options": ["heimdahl", "loki", "Fury", "Odin"],
+    "correct": "Odin"
+  },{
+    "question": "Who is the brother of Thor?",
+    "options": ["heimdahl", "loki", "Fury", "Odin"],
+    "correct": "loki"
+  },{
+    "question": "Who is the mother of Thor?",
+    "options": ["heimdahl", "loki", "Fury", "Which"],
+    "correct": "Which"
+  },{
+    "question": "Who is the best friend of Thor?",
+    "options": ["heimdahl", "loki", "Fury", "Odin"],
+    "correct": "heimdahl"
+  },{
+    "question": "Who is the sister of Thor?",
+    "options": ["heimdahl", "loki", "Fury", "hella"],
+    "correct": "hella"
+  },{
+    "question": "Thor is god of",
+    "options": ["thunder", "death", "rain", "magic"],
+    "correct": "thunder"
+  },{
+    "question": "Who is the most hated positive character?",
+    "options": ["quill", "gamora", "thans", "Odin"],
+    "correct": "quill"
+  },{
+    "question": "Hella is goddess of",
+    "options": ["thunder", "death", "rain", "magic"],
+    "correct": "death"
+  },{
+    "question": "Who is the most powerfull character?",
+    "options": ["adam", "gamora", "thanos", "Odin"],
+    "correct": "adam"
+  },{
+    "question": "Hella is wife of",
+    "options": ["thanos", "odin", "loki", "thor"],
+    "correct": "thanos"
+  }
+]

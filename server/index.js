@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 
 const router = express.Router();
-// const routes = require('./routes/index.js');
+const routes = require('./routes/index.js');
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -34,7 +34,7 @@ async function start () {
     await builder.build()
   }
 
-//   app.use('/api', routes(router));
+  app.use('/api', routes(router));
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
