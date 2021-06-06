@@ -109,7 +109,7 @@
         await this.$store.dispatch('GET_LEADERBOARD')
       },
       async leaveGame(){
-        if(confirm(`You really wanna leave the battler ${this.username} !!`)){
+        if(confirm(`You really wanna leave the battle ${this.username} !!`)){
           await this.$store.dispatch('LEAVE_THE_GAME');
         }
       },

@@ -23,6 +23,11 @@ module.exports =  {
   plugins: [
   ],
 
+
+  axios: {
+    baseURL: process.env.baseURL | 'http://localhost:3000', // Used as fallback if no runtime config is provided
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
