@@ -1,15 +1,5 @@
 # marvel_quiz
 
-## Technical Docs
-
-* You can create or join a room.
-
-* Five random questions from a predefined question set would be selected for a particular player, this is stored in a json file in server code itself.
-
-* A redis key would be created when a player joins a room with score 0.
-
-* Every time a user submits the answer, new score of that player would be added in the redis and leaderboard would alse be updated on that user's screen.
-
 
 ## Technology Stack
 
@@ -22,6 +12,20 @@
 * Serverless (For deployment)
 
 * AWS Lambda
+
+* ioredis
+
+
+## Technical Docs
+
+* You can create or join a room.
+
+* Five random questions from a predefined question set would be selected for a particular player, this is stored in a json file in server code itself.
+
+* A redis key would be created when a player joins a room with score 0.
+
+* Every time a user submits the answer, new score of that player would be added in the redis and leaderboard would alse be updated on that user's screen.
+
 
 ## Functional Docs
 
