@@ -11,10 +11,7 @@
 
       <div id = "belowBar">
 
-        <div id ="leaderBoard">
-          <h4> Leaderboard </h4>
-          <b-table striped hover :items="leaderBoard"></b-table>
-        </div>
+        
 
         <div id="question">
 
@@ -40,9 +37,13 @@
           <span v-if="loading"> <b-icon icon="three-dots" animation="cylon" font-scale="4" ></b-icon> </span>
           </div>
         
-        
 
         </div>
+          <div id ="leaderBoard">
+          <h4> Leaderboard </h4>
+          <b-table striped hover :items="leaderBoard"></b-table>
+        </div>
+
       </div>
     </div>
 </template>
@@ -141,13 +142,14 @@
 }
 
 #belowBar{
-
+    width: 100vw;
+    max-width: 100vw;
     display: flex;
 }
 
 #leaderBoard{
     flex: 1;
-    float: left;
+    float: right;
     /* background: red; */
     max-height: 50vh;
     min-height: 50vh;
@@ -183,7 +185,8 @@
 }
 
 #questionDescText{
-  font-size: 60px;
+  font-size: 3vw;
+  padding-top: 25px;
 }
 
 #nextButton{
@@ -202,7 +205,7 @@
 
 #question{
   color: rgb(19, 32, 32);
-  min-width: 70vw;
+  min-width: 60vw;
   float: left;
   margin-left: 0;
   /* background: rosybrown; */
@@ -277,6 +280,12 @@ h3{
   #questionDescText{
     font-size: 30px;
   }
+  #selected{
+  /* padding: 2%; */
+  text-align: center;
+  padding-right: 4%;
+  font-size: 20px;
+}
 
 }
 </style>
