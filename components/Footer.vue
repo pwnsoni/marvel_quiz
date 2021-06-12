@@ -1,6 +1,6 @@
 <template>
     <div id="footer">
-        <hr/>
+        <!-- <hr/> -->
         <div id="hrLine"> </div>
         <p> Made with <b-icon icon="suit-heart-fill" aria-hidden="true" font-scale="1"></b-icon> by Nuxt</p>
         <div id="icons">
@@ -18,13 +18,18 @@
     #footer{
         min-width: 100vw;
         background: rgb(220, 247, 248);
+        /* padding-top: 50px; */
     }
 
     #hrLine{
-        width: 70vw;
-        max-height: 1px;
+        max-width: 100vw;
+        height: 1px;
         text-align: center;
-        background: chartreuse;
+        background: blue;
+        /* padding-top: 20px;
+        padding-bottom: 20px; */
+        margin: 30px;
+
     }
 
     #icons{

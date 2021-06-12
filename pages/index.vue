@@ -65,10 +65,11 @@
   }
 
   #topBarText{
-
+    font-size: 6vh;
     padding-bottom: 4%;
     justify-content: space-between;
     text-align: center;
+    font-weight: 500;
   }
 </style>
 

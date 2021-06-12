@@ -104,4 +104,55 @@ h1{
   justify-content: space-between;
   display: flex;
 }
+
+
+@media screen and (max-width: 600px) {
+  #leaderBoard{
+    display: unset;
+    justify-content: unset;
+    float: unset;
+    min-height: 30px;
+    max-width: 35vw;
+    padding-left: 3vw;
+    padding: 2vw;
+    transition: 0.5s;
+    height: 40px;
+    overflow-y: auto;
+  }
+
+
+  #topBarText{
+    font-size: 25px;
+  }
+
+  #belowBar{
+    display: unset;
+  }
+
+  #question{
+    color: rgb(19, 32, 32);
+    min-width: 70vw;
+    float: unset;
+    margin: 20px;
+    padding-bottom: 20px;
+    /* background: rosybrown; */
+    transition: 0.5s;
+    /* padding-left: 1px; */
+  }
+
+  h3{
+    font-size: 20px;
+  }
+
+  #questionDesc{
+    padding: 2%;
+    /* padding-left: 0; */
+    text-align: center;
+  }
+
+  #questionDescText{
+    font-size: 30px;
+  }
+
+}
 </style>
