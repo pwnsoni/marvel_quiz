@@ -1,7 +1,10 @@
 <template>
 
   <div id="mainDiv">
-    <h1 id="topBarText"> <span> Welcome to Marvel Quiz</span>  </h1>
+    <div id="head">
+      <h1 id="topBarText"> <span> Welcome to Marvel Quiz</span>  </h1>
+      <h6> for more details, visit <i> <b-link to="/docs"> docs </b-link> </i></h6>
+    </div>
     <div>
       <b-form-group
         id="fieldset-horizontal"
@@ -64,12 +67,16 @@
     min-height: 85vh;
   }
 
-  #topBarText{
-    font-size: 6vh;
+  #head{
     padding-bottom: 4%;
     justify-content: space-between;
     text-align: center;
     font-weight: 500;
+  }
+
+  #topBarText{
+    font-size: 6vh;
+
   }
 </style>
 
