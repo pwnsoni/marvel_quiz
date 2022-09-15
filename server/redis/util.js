@@ -4,9 +4,10 @@ const connectToRedis = () => {
     const redis = new Redis({
         host: process.env.REDIS_HOST,
         port: process.env.REDIS_PORT,
+        username: process.env.REDIS_USER,
         password: process.env.REDIS_PASSWORD
     });
-    return redis;    
+   return redis;    
 }
 
 const addScoreInRoom = async (room, username, score) => {
@@ -37,7 +38,7 @@ const getLeaderBoardTops = async (room, toppers) => {
       });
 
     let response = await redis.leaderboard(room, toppers);
-    // console.log(`Current Leaderboard: ${JSON.stringify(response.map(JSON.parse))}`);
+    console.log(`Current Leaderboard: ${JSON.stringify(response.map(JSON.parse))}`);
     redis.quit();
     return response.map(JSON.parse);
 }
